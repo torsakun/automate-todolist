@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-06-03T14:48:27.114411" rpa="false" schemaversion="5">
+<suite id="s1" name="TodoList" source="/Users/barry/Documents/ToDoListTesting/TestCases/TodoList.robot">
+<test id="s1-t1" name="TC01 Verify Add Todo Item" line="8">
+<kw name="Open Browser ToDo List" owner="TodoList" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:27.178612" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T14:48:27.178530" elapsed="4.031781"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.210906" elapsed="0.360930"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.574857" level="INFO">${title_actual} = To-Do List</msg>
+<var>${title_actual}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.571997" elapsed="0.002890"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.587889" level="INFO">${h1_actual} = TO DO LIST</msg>
+<var>${h1_actual}</var>
+<arg>xpath=//h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.574992" elapsed="0.012920"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${title_actual}</arg>
+<arg>To-Do List</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.588020" elapsed="0.000141"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${h1_actual}</arg>
+<arg>TO DO LIST</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.588210" elapsed="0.000062"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:27.178263" elapsed="4.410070"/>
+</kw>
+<kw name="Add Todo Item" owner="TodoList">
+<kw name="Web Input Text" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.588822" elapsed="0.008638"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.597735" level="INFO">Typing text 'Buy groceries' into text field '//*[@id="new-task"]'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.597589" elapsed="0.071886"/>
+</kw>
+<arg>${TODOLIST_INPUT}</arg>
+<arg>${item}</arg>
+<doc>Types the given text into text field identified by locator.
+See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.588694" elapsed="0.080883"/>
+</kw>
+<kw name="Web Click Button" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.669933" elapsed="0.008793"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.679070" level="INFO">Clicking button '//*[@id="add-item"]/button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.678913" elapsed="0.031273"/>
+</kw>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click button identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.669714" elapsed="0.040568"/>
+</kw>
+<arg>${TC01}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:31.588529" elapsed="0.121783"/>
+</kw>
+<kw name="Verify Todo Item Added" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.710808" elapsed="0.008251"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.719394" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.719221" elapsed="0.020462"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.710682" elapsed="0.029072"/>
+</kw>
+<kw name="Web Element Should Contain" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.740113" elapsed="0.007467"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.753227" level="INFO">Element '(//span[@class='mdl-checkbox__label' and starts-with(@id, 'text-')])[last()]' contains text 'Buy groceries'.</msg>
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.747691" elapsed="0.005586"/>
+</kw>
+<arg>${TODO_ITEM}</arg>
+<arg>${item}</arg>
+<doc>Verifies element identified by locator exactly contains text expected.
+In contrast to Element Should Contain, this keyword does not try a substring match but an exact match on the element identified by locator.
+message can be used to override the default error message.
+Key attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.739870" elapsed="0.013461"/>
+</kw>
+<arg>${TC01}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:31.710498" elapsed="0.042859"/>
+</kw>
+<kw name="Keyword for teardown" owner="RedefineWebKeywords" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Web Capture Screenshot</arg>
+<arg>ERROR:</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.753687" elapsed="0.000054"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.753916" elapsed="0.069847"/>
+</kw>
+<arg>Close Browser</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.753863" elapsed="0.069955"/>
+</kw>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.753800" elapsed="0.070040"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:31.753535" elapsed="0.070332"/>
+</kw>
+<doc>ทดสอบการ Add รายการใน Todo List</doc>
+<tag>positive</tag>
+<tag>regression</tag>
+<tag>TC01</tag>
+<status status="PASS" start="2024-06-03T14:48:27.177927" elapsed="4.645994"/>
+</test>
+<test id="s1-t2" name="TC02 Verify Complete Todo Item" line="14">
+<kw name="Open Browser ToDo List" owner="TodoList" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:31.824631" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T14:48:31.824538" elapsed="3.834730"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-03T14:48:35.662105" elapsed="0.359135"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.023792" level="INFO">${title_actual} = To-Do List</msg>
+<var>${title_actual}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.021372" elapsed="0.002437"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.034268" level="INFO">${h1_actual} = TO DO LIST</msg>
+<var>${h1_actual}</var>
+<arg>xpath=//h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.023882" elapsed="0.010406"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${title_actual}</arg>
+<arg>To-Do List</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.034396" elapsed="0.000119"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${h1_actual}</arg>
+<arg>TO DO LIST</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.034556" elapsed="0.000047"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:31.824416" elapsed="4.210237"/>
+</kw>
+<kw name="Add Todo Item" owner="TodoList">
+<kw name="Web Input Text" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.035108" elapsed="0.007116"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.042420" level="INFO">Typing text 'Clean the house' into text field '//*[@id="new-task"]'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.042316" elapsed="0.072890"/>
+</kw>
+<arg>${TODOLIST_INPUT}</arg>
+<arg>${item}</arg>
+<doc>Types the given text into text field identified by locator.
+See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.034996" elapsed="0.080310"/>
+</kw>
+<kw name="Web Click Button" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.115668" elapsed="0.009106"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.125126" level="INFO">Clicking button '//*[@id="add-item"]/button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.124961" elapsed="0.024360"/>
+</kw>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click button identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.115437" elapsed="0.033968"/>
+</kw>
+<arg>${TC02}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:36.034837" elapsed="0.114591"/>
+</kw>
+<kw name="Verify Todo Item Added" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.149858" elapsed="0.007834"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.158060" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.157865" elapsed="0.020447"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.149743" elapsed="0.028643"/>
+</kw>
+<kw name="Web Element Should Contain" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.178678" elapsed="0.007611"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.192195" level="INFO">Element '(//span[@class='mdl-checkbox__label' and starts-with(@id, 'text-')])[last()]' contains text 'Clean the house'.</msg>
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.186401" elapsed="0.005854"/>
+</kw>
+<arg>${TODO_ITEM}</arg>
+<arg>${item}</arg>
+<doc>Verifies element identified by locator exactly contains text expected.
+In contrast to Element Should Contain, this keyword does not try a substring match but an exact match on the element identified by locator.
+message can be used to override the default error message.
+Key attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.178488" elapsed="0.013829"/>
+</kw>
+<arg>${TC02}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:36.149576" elapsed="0.042767"/>
+</kw>
+<kw name="Complete Todo Item" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.192739" elapsed="0.004966"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.197852" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.197778" elapsed="0.011568"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.192629" elapsed="0.016785"/>
+</kw>
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.209675" elapsed="0.006890"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.216757" level="INFO">Clicking element '//span[starts-with(@id, 'text-') and @class='mdl-checkbox__label' and text()='Clean the house']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.216656" elapsed="0.014097"/>
+</kw>
+<arg>//span[starts-with(@id, 'text-') and @class='mdl-checkbox__label' and text()='${item}']</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.209508" elapsed="0.021302"/>
+</kw>
+<arg>${TC02}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:36.192470" elapsed="0.038365"/>
+</kw>
+<kw name="Verify Todo Item Completed" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.231202" elapsed="0.006402"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.238106" level="INFO">Clicking element '//*[text()="Completed"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.237886" elapsed="0.016457"/>
+</kw>
+<arg>${COMPLETED_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.231100" elapsed="0.023293"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.261010" level="INFO">Element '(//span[@class='mdl-list__item-primary-content' and text()='Clean the house'])[last()]' is displayed.</msg>
+<arg>(//span[@class='mdl-list__item-primary-content' and text()='${item}'])[last()]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.254457" elapsed="0.006600"/>
+</kw>
+<arg>${TC02}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:36.230955" elapsed="0.030150"/>
+</kw>
+<kw name="Keyword for teardown" owner="RedefineWebKeywords" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Web Capture Screenshot</arg>
+<arg>ERROR:</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.261402" elapsed="0.000041"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.261582" elapsed="0.068649"/>
+</kw>
+<arg>Close Browser</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.261536" elapsed="0.068785"/>
+</kw>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.261484" elapsed="0.068876"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:36.261288" elapsed="0.069107"/>
+</kw>
+<doc>ทดสอบการ Checked ว่ารายการใน Todo List Completed</doc>
+<tag>positive</tag>
+<tag>regression</tag>
+<tag>TC02</tag>
+<status status="PASS" start="2024-06-03T14:48:31.824092" elapsed="4.506358"/>
+</test>
+<test id="s1-t3" name="TC03 Verify Delete Todo Item" line="22">
+<kw name="Open Browser ToDo List" owner="TodoList" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:36.331072" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T14:48:36.330995" elapsed="3.816958"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.148517" elapsed="0.359203"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.510452" level="INFO">${title_actual} = To-Do List</msg>
+<var>${title_actual}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.507859" elapsed="0.002612"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.521165" level="INFO">${h1_actual} = TO DO LIST</msg>
+<var>${h1_actual}</var>
+<arg>xpath=//h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.510548" elapsed="0.010639"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${title_actual}</arg>
+<arg>To-Do List</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.521292" elapsed="0.000120"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${h1_actual}</arg>
+<arg>TO DO LIST</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.521455" elapsed="0.000049"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:36.330888" elapsed="4.190675"/>
+</kw>
+<kw name="Add Todo Item" owner="TodoList">
+<kw name="Web Input Text" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.522164" elapsed="0.007759"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.530146" level="INFO">Typing text 'Pay bills' into text field '//*[@id="new-task"]'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.530022" elapsed="0.072566"/>
+</kw>
+<arg>${TODOLIST_INPUT}</arg>
+<arg>${item}</arg>
+<doc>Types the given text into text field identified by locator.
+See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.521897" elapsed="0.080786"/>
+</kw>
+<kw name="Web Click Button" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.603007" elapsed="0.007441"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.610604" level="INFO">Clicking button '//*[@id="add-item"]/button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.610521" elapsed="0.024630"/>
+</kw>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click button identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.602809" elapsed="0.032430"/>
+</kw>
+<arg>${TC03}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:40.521741" elapsed="0.113525"/>
+</kw>
+<kw name="Verify Todo Item Added" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.635733" elapsed="0.008659"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.644617" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.644514" elapsed="0.023200"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.635621" elapsed="0.032166"/>
+</kw>
+<kw name="Web Element Should Contain" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.668072" elapsed="0.007322"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.682025" level="INFO">Element '(//span[@class='mdl-checkbox__label' and starts-with(@id, 'text-')])[last()]' contains text 'Pay bills'.</msg>
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.675547" elapsed="0.006527"/>
+</kw>
+<arg>${TODO_ITEM}</arg>
+<arg>${item}</arg>
+<doc>Verifies element identified by locator exactly contains text expected.
+In contrast to Element Should Contain, this keyword does not try a substring match but an exact match on the element identified by locator.
+message can be used to override the default error message.
+Key attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.667904" elapsed="0.014308"/>
+</kw>
+<arg>${TC03}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:40.635443" elapsed="0.046797"/>
+</kw>
+<kw name="Delete Todo Item" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.682639" elapsed="0.004582"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.687394" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.687302" elapsed="0.012081"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.682527" elapsed="0.016925"/>
+</kw>
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.699715" elapsed="0.006985"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.706877" level="INFO">Clicking element '(//button[@class='mdl-button mdl-js-button mdl-js-ripple-effect delete'])[last()]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.706785" elapsed="0.013516"/>
+</kw>
+<arg>${TODO_DELETE}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.699553" elapsed="0.020804"/>
+</kw>
+<arg>${TC03}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:40.682369" elapsed="0.038009"/>
+</kw>
+<kw name="Verify Todo Item Deleted" owner="TodoList">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.724188" level="INFO">Element '//*[contains(text(),"Pay bills")]' did not exist.</msg>
+<arg>//*[contains(text(),"${item}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.720642" elapsed="0.003579"/>
+</kw>
+<arg>${TC03}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:40.720498" elapsed="0.003753"/>
+</kw>
+<kw name="Keyword for teardown" owner="RedefineWebKeywords" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Web Capture Screenshot</arg>
+<arg>ERROR:</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.724489" elapsed="0.000032"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.724645" elapsed="0.066852"/>
+</kw>
+<arg>Close Browser</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.724605" elapsed="0.066979"/>
+</kw>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.724557" elapsed="0.067058"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:40.724384" elapsed="0.067260"/>
+</kw>
+<doc>ทดสอบการ Delete รายการใน Todo List</doc>
+<tag>positive</tag>
+<tag>regression</tag>
+<tag>TC03</tag>
+<status status="PASS" start="2024-06-03T14:48:36.330617" elapsed="4.461084"/>
+</test>
+<test id="s1-t4" name="TC04 Verify Delete Completed Item" line="30">
+<kw name="Open Browser ToDo List" owner="TodoList" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:40.792344" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-03T14:48:40.792261" elapsed="3.793262"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.586068" elapsed="0.359978"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:44.948818" level="INFO">${title_actual} = To-Do List</msg>
+<var>${title_actual}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.946198" elapsed="0.002641"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:44.960736" level="INFO">${h1_actual} = TO DO LIST</msg>
+<var>${h1_actual}</var>
+<arg>xpath=//h1</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.948927" elapsed="0.011831"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${title_actual}</arg>
+<arg>To-Do List</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.960869" elapsed="0.000129"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${h1_actual}</arg>
+<arg>TO DO LIST</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.961043" elapsed="0.000052"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:40.792149" elapsed="4.168996"/>
+</kw>
+<kw name="Add Todo Item" owner="TodoList">
+<kw name="Web Input Text" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.961592" elapsed="0.007955"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:44.969752" level="INFO">Typing text 'Diner' into text field '//*[@id="new-task"]'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.969641" elapsed="0.072904"/>
+</kw>
+<arg>${TODOLIST_INPUT}</arg>
+<arg>${item}</arg>
+<doc>Types the given text into text field identified by locator.
+See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:44.961472" elapsed="0.081169"/>
+</kw>
+<kw name="Web Click Button" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.042983" elapsed="0.008482"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.051712" level="INFO">Clicking button '//*[@id="add-item"]/button'.</msg>
+<arg>${locator}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.051586" elapsed="0.025196"/>
+</kw>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click button identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.042775" elapsed="0.034174"/>
+</kw>
+<arg>${TC04}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:44.961317" elapsed="0.115657"/>
+</kw>
+<kw name="Verify Todo Item Added" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.077437" elapsed="0.015334"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.093159" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.092971" elapsed="0.019434"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.077322" elapsed="0.035251"/>
+</kw>
+<kw name="Web Element Should Contain" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.112889" elapsed="0.007905"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.126805" level="INFO">Element '(//span[@class='mdl-checkbox__label' and starts-with(@id, 'text-')])[last()]' contains text 'Diner'.</msg>
+<arg>${locator}</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.120914" elapsed="0.005949"/>
+</kw>
+<arg>${TODO_ITEM}</arg>
+<arg>${item}</arg>
+<doc>Verifies element identified by locator exactly contains text expected.
+In contrast to Element Should Contain, this keyword does not try a substring match but an exact match on the element identified by locator.
+message can be used to override the default error message.
+Key attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.112700" elapsed="0.014226"/>
+</kw>
+<arg>${TC04}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:45.077139" elapsed="0.049815"/>
+</kw>
+<kw name="Complete Todo Item" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.127370" elapsed="0.004798"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.132377" level="INFO">Clicking element '//*[text()="To-Do Tasks"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.132269" elapsed="0.012227"/>
+</kw>
+<arg>${TODO_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.127243" elapsed="0.017315"/>
+</kw>
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.144818" elapsed="0.006794"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.151777" level="INFO">Clicking element '//span[starts-with(@id, 'text-') and @class='mdl-checkbox__label' and text()='Diner']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.151691" elapsed="0.014160"/>
+</kw>
+<arg>//span[starts-with(@id, 'text-') and @class='mdl-checkbox__label' and text()='${item}']</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.144649" elapsed="0.021257"/>
+</kw>
+<arg>${TC04}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:45.127090" elapsed="0.038838"/>
+</kw>
+<kw name="Delete Completed Item" owner="TodoList">
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.166279" elapsed="0.008171"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.174743" level="INFO">Clicking element '//*[text()="Completed"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.174584" elapsed="0.016602"/>
+</kw>
+<arg>${COMPLETED_TAB}</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.166184" elapsed="0.025063"/>
+</kw>
+<kw name="Web Click Element" owner="RedefineWebKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.191491" elapsed="0.006944"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.198645" level="INFO">Clicking element '//span[@class='mdl-list__item-primary-content' and text()='Diner']/following-sibling::button[@class='mdl-button mdl-js-button mdl-js-ripple-effect delete' and @id='1']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.198538" elapsed="0.013988"/>
+</kw>
+<arg>//span[@class='mdl-list__item-primary-content' and text()='${item}']/following-sibling::button[@class='mdl-button mdl-js-button mdl-js-ripple-effect delete' and @id='1']</arg>
+<doc>Click element identified by locator.
+attributes for arbitrary elements are id and name. See introduction for details about locating elements.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.191333" elapsed="0.021254"/>
+</kw>
+<arg>${TC04}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:45.166046" elapsed="0.046566"/>
+</kw>
+<kw name="Verify Completed Item Deleted" owner="TodoList">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-03T14:48:45.217517" level="INFO">Element '//*[contains(text(),"Diner")]' did not exist.</msg>
+<arg>//*[contains(text(),"${item}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.212920" elapsed="0.004654"/>
+</kw>
+<arg>${TC04}[Item]</arg>
+<status status="PASS" start="2024-06-03T14:48:45.212761" elapsed="0.004855"/>
+</kw>
+<kw name="Keyword for teardown" owner="RedefineWebKeywords" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Web Capture Screenshot</arg>
+<arg>ERROR:</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.217978" elapsed="0.000045"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.218204" elapsed="0.068648"/>
+</kw>
+<arg>Close Browser</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.218160" elapsed="0.068779"/>
+</kw>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-06-03T14:48:45.218088" elapsed="0.068874"/>
+</kw>
+<status status="PASS" start="2024-06-03T14:48:45.217813" elapsed="0.069177"/>
+</kw>
+<doc>ทดสอบการ Delete รายการใน Completed</doc>
+<tag>positive</tag>
+<tag>regression</tag>
+<tag>TC04</tag>
+<status status="PASS" start="2024-06-03T14:48:40.791874" elapsed="4.495158"/>
+</test>
+<status status="PASS" start="2024-06-03T14:48:27.114856" elapsed="18.172440"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">positive</stat>
+<stat pass="4" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">TC01</stat>
+<stat pass="1" fail="0" skip="0">TC02</stat>
+<stat pass="1" fail="0" skip="0">TC03</stat>
+<stat pass="1" fail="0" skip="0">TC04</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="TodoList">TodoList</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
