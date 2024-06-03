@@ -29,7 +29,7 @@ To run the tests, use the following command:
 
 robot -d TestResults TestCases/TodoList.robot
 
-File Structure
+## File Structure
 
 - `TestCases/`: Contains the main test file.
 - `TestData/`: Contains the main data file.
